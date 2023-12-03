@@ -106,12 +106,21 @@ void part1() {
         ColorData game_data = get_game_data(data[i]);
 
         // if the any max of the game exceeds max available game is not possible
-        if (game_data.red > max_red || game_data.green > max_green || game_data.blue > max_blue) {
+        if (game_data.red > max_red) {
             // game cannot exist
+            std::cout << "Game " << i + 1 << " not possible because red: " << game_data.red << std::endl;
+        }
+        else if (game_data.green > max_green) {
+            // game cannot exist
+            std::cout << "Game " << i + 1 << " not possible because green: " << game_data.green << std::endl;
+        }
+        else if (game_data.blue > max_blue) {
+            // game cannot exist
+            std::cout << "Game " << i + 1 << " not possible because blue: " << game_data.blue << std::endl;
         } 
         else {
             // game possible
-            std::cout << "Game " << i + 1 << " is possible" << std::endl;
+            // std::cout << "Game " << i + 1 << " is possible" << std::endl;
             // add game index to sum
             sum += i + 1;
         }
@@ -142,6 +151,6 @@ void part2() {
 }
 
 int main() {
-    // part1();
-    part2();
+    part1();
+    // part2();
 }
